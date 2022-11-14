@@ -1,5 +1,6 @@
 import React from 'react';
 import cbg from '../../../assets/images/appointment.png'
+import PrimaryButtons from '../../../Components/PrimaryButtons';
 const ContactUs = () => {
     return (
         <div style={{
@@ -11,6 +12,7 @@ const ContactUs = () => {
             <form className='flex justify-center flex-col just gap-4 my-4'>
                 <input type="text" placeholder="Email address" className="input mx-auto w-full max-w-xl" /><input type="text" placeholder="Subject" className="input mx-auto w-full max-w-xl" />
                 <input type="text" placeholder="Your Message" className="input mx-auto input-bordered input-lg w-full max-w-xl" />
+                <button type='submit'><PrimaryButtons type="submit" className='px-44'>Submit</PrimaryButtons></button>
             </form>
         </div>
     );

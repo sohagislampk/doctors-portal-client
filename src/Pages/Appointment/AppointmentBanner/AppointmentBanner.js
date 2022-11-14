@@ -1,6 +1,6 @@
 import React from 'react';
 import { DayPicker } from 'react-day-picker';
-import chair from '../../assets/images/chair.png'
+import chair from '../../../assets/images/chair.png'
 const AppointmentBanner = ({ selectedDate, setSelectedDate }) => {
     return (
         <header className='my-6'>

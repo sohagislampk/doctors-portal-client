@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
+import BookingModal from '../BookingModal/BookingModal';
 import AppoitmentOption from './AppointmentOption';
 
 const AvailableAppoitments = ({ selectedDate }) => {
@@ -22,7 +23,14 @@ const AvailableAppoitments = ({ selectedDate }) => {
                     ></AppoitmentOption>)
                 }
             </div>
-
+            {
+                treatment &&
+                <BookingModal
+                    selectedDate={selectedDate}
+                    treatment={treatment}
+                    setTreatment={setTreatment}
+                ></BookingModal>
+            }
         </section>
     );
 };
