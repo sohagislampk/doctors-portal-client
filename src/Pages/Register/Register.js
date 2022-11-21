@@ -8,6 +8,7 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, googleLogin } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('')
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -25,7 +26,7 @@ const Register = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/');
+                        saveUser(data.name, data.email)
                     })
                     .catch(err => console.log(err));
 
@@ -49,6 +50,20 @@ const Register = () => {
             })
 
             .catch(e => setSignUPError(e.message));
+    }
+    const saveUser = (name, email) => {
+        const user = { name, email };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email);
+            })
     }
     return (
         <div className='h-[600px] flex justify-center items-center'>
