@@ -25,7 +25,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment, refetch }) => {
             email,
             phone,
         }
-        console.log(booking);
+
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
@@ -35,7 +35,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+
                 if (data.acknowledged) {
                     setTreatment(null);
                     toast.success('Booking confirmed');
