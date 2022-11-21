@@ -2,6 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import React, { useState } from 'react';
+import Loading from '../../../Components/Loading';
 import BookingModal from '../BookingModal/BookingModal';
 import AppoitmentOption from './AppointmentOption';
 
@@ -17,7 +18,7 @@ const AvailableAppoitments = ({ selectedDate }) => {
         }
     });
     if (isLoading) {
-        return <p> loading...</p>
+        return <Loading></Loading>
     }
 
     return (
