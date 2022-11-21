@@ -25,10 +25,11 @@ const BookingModal = ({ treatment, selectedDate, setTreatment, refetch }) => {
             email,
             phone,
         }
+        console.log(booking);
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
-                'application-type': 'aplication/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(booking)
         })
@@ -40,8 +41,10 @@ const BookingModal = ({ treatment, selectedDate, setTreatment, refetch }) => {
                     toast.success('Booking confirmed');
                     refetch();
                 }
+                else {
+                    toast.error(data.message);
+                }
             })
-        setTreatment(null);
     }
     return (
         <>
@@ -60,8 +63,8 @@ const BookingModal = ({ treatment, selectedDate, setTreatment, refetch }) => {
                                 >{slot}</option>)
                             }
                         </select>
-                        <input name="name" type="text" defaultValue={user.displayName} placeholder="Your Name" className="input w-full input-bordered" />
-                        <input name="email" type="email" defaultValue={user.email} placeholder="Email Address" className="input w-full input-bordered" />
+                        <input name="name" type="text" defaultValue={user?.displayName} disabled placeholder="Your Name" className="input w-full input-bordered" />
+                        <input name="email" type="email" defaultValue={user?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />
                         <input name="phone" type="text" placeholder="Phone Number" className="input w-full input-bordered" />
                         <br />
                         <input className='btn btn-accent w-full' type="submit" value="Submit" />
