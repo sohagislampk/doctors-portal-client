@@ -24,9 +24,11 @@ const Register = () => {
                     displayName: data.name
                 }
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        navigate('/');
+                    })
                     .catch(err => console.log(err));
-                navigate(from, { replace: true });
+
             })
             .catch(error => {
                 console.log(error)
