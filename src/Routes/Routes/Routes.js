@@ -5,9 +5,10 @@ import DashboardLayouts from '../../Layouts/DashboardLayouts';
 
 import Main from '../../Layouts/Main';
 import Appointment from '../../Pages/Appointment/Appointment/Appointment';
+import AllUsers from '../../Pages/Dashboard/AllUsers/AllUsers';
+import MyAppointment from '../../Pages/Dashboard/MyAppointment/MyAppointment';
 import Home from '../../Pages/Home/Home/Home';
 import Login from '../../Pages/Login/Login';
-import MyAppointment from '../../Pages/Dashboard/MyAppointment/MyAppointment';
 import Register from '../../Pages/Register/Register';
 import PrivateRoute from '../PrivateRoutes/PrivateRoute';
 
@@ -43,7 +44,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MyAppointment></MyAppointment>
-            }
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
+            },
         ]
     }
 ])
